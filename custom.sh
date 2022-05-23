@@ -22,5 +22,6 @@ sudo qemu-system-x86_64 \
   -drive file=virtio-win.iso,media=cdrom \
   -device usb-ehci,id=usb,bus=pci.0,addr=0x4 \
   -device usb-tablet \
+  -device e1000,netdev=n0 \
   -vnc :0 \
   -smp cores=4 \
