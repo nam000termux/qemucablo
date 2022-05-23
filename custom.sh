@@ -8,7 +8,7 @@ nohup ./ngrok tcp --region ap 5900 &>/dev/null &
 sudo apt-get update && apt-get install qemu -y
 sudo apt install qemu-utils -y
 sudo apt install qemu-system-x86 -y
-qemu-img create -f raw MeMay.img 1T
+qemu-img create -f raw MeMay.img 200G
 wget -O virtio-win.iso 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.215-1/virtio-win-0.1.215.iso'
 wget -O iso.iso $iso
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
@@ -21,7 +21,6 @@ sudo qemu-system-x86_64 \
   -drive file=virtio-win.iso,media=cdrom \
   -device usb-ehci,id=usb,bus=pci.0,addr=0x4 \
   -device usb-tablet \
-  -device e1000,netdev=n0 \
   -vnc :0 \
   -smp cores=2 \
 
