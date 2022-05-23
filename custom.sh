@@ -11,7 +11,8 @@ sudo apt install qemu-system-x86 -y
 qemu-img create -f raw MeMay.img 1T
 wget -O virtio-win.iso 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.215-1/virtio-win-0.1.215.iso'
 wget -O iso.iso $iso
-sudo nohup qemu-system-x86_64 \
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+sudo qemu-system-x86_64 \
   -m 8G \
   -cpu EPYC \
   -boot order=d \
@@ -23,4 +24,4 @@ sudo nohup qemu-system-x86_64 \
   -device e1000,netdev=n0 \
   -vnc :0 \
   -smp cores=2 \
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+
