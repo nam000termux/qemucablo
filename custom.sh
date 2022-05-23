@@ -18,7 +18,7 @@ sudo qemu-system-x86_64 \
   -cpu EPYC \
   -boot order=d \
   -drive file=iso.iso,media=cdrom \
-  -drive file=windows10.img,format=raw,if=virtio \
+  -drive file=MeMay.img,format=raw,if=virtio \
   -drive file=virtio-win.iso,media=cdrom \
   -device usb-ehci,id=usb,bus=pci.0,addr=0x4 \
   -device usb-tablet \
