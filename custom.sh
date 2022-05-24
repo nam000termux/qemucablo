@@ -18,3 +18,4 @@ sudo qemu-system-x86_64 \
   -vnc :0 \
   -device e1000 \
   -smp cores=2 \
+  -accel tcg,thread=multi \
